@@ -15,5 +15,5 @@ ext {
 
     // Dependencies
     nav_version = "2.5.3"
-
+    koinVersion = "3.3.3"
 }
