@@ -16,4 +16,6 @@ ext {
     // Dependencies
     nav_version = "2.5.3"
     koinVersion = "3.3.3"
+    retrofitVersion = "2.9.0"
+    gsonVersion = "2.9.0"
 }
