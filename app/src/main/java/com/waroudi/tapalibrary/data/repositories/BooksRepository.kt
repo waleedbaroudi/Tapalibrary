@@ -1,6 +1,6 @@
 package com.waroudi.tapalibrary.data.repositories
 
-import com.waroudi.tapalibrary.data.models.Book
+import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.network.services.BooksService
 import kotlinx.coroutines.flow.Flow
 

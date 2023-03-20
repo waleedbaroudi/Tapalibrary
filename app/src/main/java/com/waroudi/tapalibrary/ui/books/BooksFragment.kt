@@ -9,6 +9,14 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>() {
     private val viewModel: BooksViewModel by viewModel()
 
     override fun setupView() {
-        binding.tvTest.text = viewModel.test
+    }
+
+    override fun subscribesUI() {
+        with(viewModel) {
+            observeFlow(bookList,
+            success = {binding.tvTest.text = "book count: ${it.size}"})
+            getAllBooks()
+        }
+
     }
 }

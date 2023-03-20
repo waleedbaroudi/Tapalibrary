@@ -1,8 +1,7 @@
 package com.waroudi.tapalibrary.data.network.api
 
-import com.waroudi.tapalibrary.data.models.Book
+import com.waroudi.tapalibrary.data.models.api.Book
 import retrofit2.http.GET
-import retrofit2.http.Query
 
 interface BookApi {
 

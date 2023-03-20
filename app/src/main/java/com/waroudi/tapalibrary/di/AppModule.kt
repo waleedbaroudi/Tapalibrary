@@ -1,6 +1,8 @@
 package com.waroudi.tapalibrary.di
 
 import com.waroudi.tapalibrary.data.network.api.BookApi
+import com.waroudi.tapalibrary.data.network.services.BooksService
+import com.waroudi.tapalibrary.data.repositories.BooksRepository
 import com.waroudi.tapalibrary.ui.books.BooksViewModel
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -30,7 +32,12 @@ val appModule = module {
 
     single { get<Retrofit>().create(BookApi::class.java) }
 
+    // Services
+    single { BooksService(get()) }
+
+    // Repositories
+    single { BooksRepository(get()) }
 
     // ViewModels
-    viewModel { BooksViewModel() }
+    viewModel { BooksViewModel(get()) }
 }
