@@ -9,6 +9,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.data.models.state.UiModelState
+import com.waroudi.tapalibrary.ui.main.MainActivity
+import com.waroudi.tapalibrary.utils.createBindingInstance
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -28,23 +30,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         }
 
         return binding.root
-    }
-
-    private fun <VB : ViewBinding> Fragment.createBindingInstance(
-        inflater: LayoutInflater,
-        container: ViewGroup? = null
-    ): VB {
-        val vbType = (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0]
-        val vbClass = vbType as Class<VB>
-        val method = vbClass.getMethod(
-            "inflate",
-            LayoutInflater::class.java,
-            ViewGroup::class.java,
-            Boolean::class.java
-        )
-
-        // Call VB.inflate(inflater, container, false) Java static method
-        return method.invoke(null, inflater, container, false) as VB
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -77,32 +62,48 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
                 when (result) {
                     is UiModelState.Loading -> {
                         loading?.invoke()
-                        if (loading == null && !ignoreLoading)  print("loading") // TODO: showProgress(false)
+                        if (loading == null && !ignoreLoading) showProgress(true)
                     }
                     is UiModelState.Success<T> -> {
                         success?.invoke(result.data)
                         end?.invoke()
-                        if (hideLoading) print("loading") // TODO: showProgress(false)
+                        if (hideLoading) showProgress(false)
                         if (cancelOnEnd) cancel()
                     }
 
                     is UiModelState.Error -> {
                         val exc = result.exception
-                        exc.let {
-                            error?.invoke(exc)
-                            end?.invoke()
-                            if (error == null && !ignoreError) print("error") //TODO: showDialogError(lemuneError)
-                            if (ignoreLoading.not()) print("loading") // TODO: showProgress(false) showProgress(false)
-                            if (cancelOnEnd) cancel()
-                        }
+                        error?.invoke(exc)
+                        end?.invoke()
+                        if (error == null && !ignoreError) showDialogError(exc)
+                        if (ignoreLoading.not()) showProgress(false)
+                        if (cancelOnEnd) cancel()
                     }
 
                     is UiModelState.None -> {
-                        if (hideLoading) print("loading") // TODO: showProgress(false)
+                        if (hideLoading) showProgress(false)
                     }
                 }
             }
         }
     }
+
+    private fun showProgress(state: Boolean) {
+        if (isAdded) requireMainActivity().updateProgress(state)
+    }
+
+    private fun showDialogError(
+        exception: TapaLibraryError = TapaLibraryError.UnknownError,
+        buttonText: String? = null,
+        action: (() -> Unit)? = null
+    ) {
+        if (isAdded) requireMainActivity().showDialogError(
+            exception = exception,
+            btnText = buttonText,
+            action = action
+        )
+    }
+
+    private fun requireMainActivity() = (requireActivity() as MainActivity)
 
 }

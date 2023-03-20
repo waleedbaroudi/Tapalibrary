@@ -21,7 +21,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/design_default_color_error"
+            app:srcCompat="@color/primary"
             tools:ignore="ContentDescription" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
-            android:textColor="@color/design_default_color_error"
+            android:textColor="@color/primary"
             android:textSize="18sp"
             android:textStyle="bold"
             android:ellipsize="end"
