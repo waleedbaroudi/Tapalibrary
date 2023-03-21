@@ -8,6 +8,7 @@ import com.waroudi.tapalibrary.databinding.FragmentBooksBinding
 import com.waroudi.tapalibrary.ui.base.BaseFragment
 import com.waroudi.tapalibrary.utils.Constants
 import com.waroudi.tapalibrary.utils.navigate
+import com.waroudi.tapalibrary.utils.navigateBack
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BooksFragment : BaseFragment<FragmentBooksBinding>() {
@@ -20,7 +21,10 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>() {
     override fun subscribesUI() {
         with(viewModel) {
             observeFlow(bookList,
-                success = { handleBooks(it) })
+                success = { handleBooks(it) },
+                error = {
+                    showDialogError(it) { navigateBack() }
+                })
             getAllBooks()
         }
 
