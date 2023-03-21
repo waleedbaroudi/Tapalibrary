@@ -1,5 +1,6 @@
 package com.waroudi.tapalibrary.ui.book_details
 
+import android.util.Log
 import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.data.repositories.BooksRepository
@@ -13,6 +14,7 @@ class BookDetailsViewModel(private val booksRepository: BooksRepository): BaseVi
 
     fun getBookById(id: String) {
         // TODO: implement
+        Log.d("TAPALOG", "getBookById: $id")
     }
 
     fun setBook(book: Book) {
