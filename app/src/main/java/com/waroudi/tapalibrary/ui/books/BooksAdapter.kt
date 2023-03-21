@@ -4,8 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.databinding.LayoutBookCellBinding
+import com.waroudi.tapalibrary.utils.setGlideImage
 
 class BooksAdapter(
     private val books: List<Book>,
@@ -33,7 +35,7 @@ class BooksViewHolder(
             tvTitle.text = book.title
             tvAuthor.text = book.author
             tvPrice.text = book.getFormattedPrice()
-
+            imgThumbnail.setGlideImage(book.getBookCoverUrl(), R.drawable.book_cover)
             root.setOnClickListener { onBookClickedListener(book) }
         }
     }

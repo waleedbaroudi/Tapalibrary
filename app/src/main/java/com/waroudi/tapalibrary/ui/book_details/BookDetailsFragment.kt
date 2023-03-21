@@ -1,5 +1,7 @@
 package com.waroudi.tapalibrary.ui.book_details
 
+import com.bumptech.glide.Glide
+import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.databinding.FragmentBookDetailsBinding
@@ -7,6 +9,7 @@ import com.waroudi.tapalibrary.ui.base.BaseFragment
 import com.waroudi.tapalibrary.utils.Constants
 import com.waroudi.tapalibrary.utils.getSafeParcelable
 import com.waroudi.tapalibrary.utils.navigateBack
+import com.waroudi.tapalibrary.utils.setGlideImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -41,6 +44,8 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
             tvPrice.text = book.getFormattedPrice()
             val isbnLabel = "isbn: ${book.isbn}"
             tvIsbn.text = isbnLabel
+
+            imgCover.setGlideImage(book.getBookCoverUrl(), R.drawable.book_cover)
         }
     }
 

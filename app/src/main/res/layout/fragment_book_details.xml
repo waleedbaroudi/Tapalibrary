@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="30dp"
-        android:src="@drawable/cover"
+        tools:src="@drawable/book_cover"
         app:layout_constraintBottom_toTopOf="@+id/tv_title"
         app:layout_constraintDimensionRatio="0.6"
         app:layout_constraintEnd_toEndOf="parent"

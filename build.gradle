@@ -18,4 +18,5 @@ ext {
     koinVersion = "3.3.3"
     retrofitVersion = "2.9.0"
     gsonVersion = "2.9.0"
+    glideVersion = '4.12.0'
 }

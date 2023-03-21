@@ -13,4 +13,5 @@ data class Book(
     val author: String
 ): Parcelable {
     fun getFormattedPrice() = "$price $currencyCode"
+    fun getBookCoverUrl() = "https://covers.openlibrary.org/b/ISBN/$isbn-L.jpg"
 }
