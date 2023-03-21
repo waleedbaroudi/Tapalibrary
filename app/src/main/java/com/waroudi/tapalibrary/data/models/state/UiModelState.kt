@@ -17,3 +17,9 @@ sealed class UiModelState<out R> {
         }
     }
 }
+
+val UiModelState<*>.succeeded
+    get() = this is UiModelState.Success && data != null
+
+val <T> UiModelState<T>.data: T?
+    get() = (this as? UiModelState.Success)?.data

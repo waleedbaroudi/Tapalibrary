@@ -13,6 +13,6 @@ class BooksViewModel(private val repository: BooksRepository) : BaseViewModel() 
     val bookList: StateFlow<UiModelState<List<Book>>> get() = _bookList
 
     fun getAllBooks() {
-        flowWrapper(repository.getAllBooks(), _bookList)
+        flowWrapper(repository.getAllBooks(), _bookList, true)
     }
 }

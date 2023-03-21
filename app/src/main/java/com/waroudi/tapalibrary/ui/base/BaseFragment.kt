@@ -92,7 +92,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         if (isAdded) requireMainActivity().updateProgress(state)
     }
 
-    private fun showDialogError(
+    fun showDialogError(
         exception: TapaLibraryError = TapaLibraryError.UnknownError,
         buttonText: String? = null,
         action: (() -> Unit)? = null

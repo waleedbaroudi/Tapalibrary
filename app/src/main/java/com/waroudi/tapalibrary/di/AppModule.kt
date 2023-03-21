@@ -3,6 +3,7 @@ package com.waroudi.tapalibrary.di
 import com.waroudi.tapalibrary.data.network.api.BookApi
 import com.waroudi.tapalibrary.data.network.services.BooksService
 import com.waroudi.tapalibrary.data.repositories.BooksRepository
+import com.waroudi.tapalibrary.ui.book_details.BookDetailsViewModel
 import com.waroudi.tapalibrary.ui.books.BooksViewModel
 import com.waroudi.tapalibrary.ui.main.MainViewModel
 import okhttp3.OkHttpClient
@@ -42,4 +43,5 @@ val appModule = module {
     // ViewModels
     viewModel { MainViewModel() }
     viewModel { BooksViewModel(get()) }
+    viewModel { BookDetailsViewModel(get()) }
 }
