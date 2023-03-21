@@ -13,8 +13,7 @@ class BookDetailsViewModel(private val booksRepository: BooksRepository): BaseVi
     val book: StateFlow<UiModelState<Book>> get() = _book
 
     fun getBookById(id: String) {
-        // TODO: implement
-        Log.d("TAPALOG", "getBookById: $id")
+        flowWrapper(booksRepository.getBookById(id), _book)
     }
 
     fun setBook(book: Book) {

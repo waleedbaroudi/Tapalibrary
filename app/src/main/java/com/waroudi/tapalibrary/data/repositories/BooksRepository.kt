@@ -9,4 +9,8 @@ class BooksRepository(private val service: BooksService) {
     fun getAllBooks(): Flow<List<Book>> {
         return service.getAllBooks()
     }
+
+    fun getBookById(id: String): Flow<Book> {
+        return service.getBookByID(id)
+    }
 }

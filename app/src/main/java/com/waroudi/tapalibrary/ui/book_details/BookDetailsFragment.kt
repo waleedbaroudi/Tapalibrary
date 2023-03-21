@@ -45,7 +45,8 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
     }
 
     private fun handleBookError(error: TapaLibraryError? = null) {
-        error?.let { showDialogError(it) }
-        navigateBack()
+        error?.let {
+            showDialogError(it) { navigateBack() }
+        }
     }
 }

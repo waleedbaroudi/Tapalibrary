@@ -28,7 +28,7 @@ abstract class BaseViewModel : ViewModel() {
             } else {
                 mutableStateFlow.value = UiModelState.Loading
                 input.doOnError {
-                    mutableStateFlow.value = UiModelState.Error(TapaLibraryError.OtherError(it.message, it))
+                    mutableStateFlow.value = UiModelState.Error(it)
                 }.collect { result ->
                     mutableStateFlow.value = UiModelState.Success(result)
                 }
