@@ -5,4 +5,5 @@
     <string name="btn_book_search">Book Search</string>
     <string name="btn_error_confirm">Okay</string>
     <string name="label_error_title">An Error Occurred</string>
+    <string name="lbl_brows_library">Browse the\nLibrary</string>
 </resources>
