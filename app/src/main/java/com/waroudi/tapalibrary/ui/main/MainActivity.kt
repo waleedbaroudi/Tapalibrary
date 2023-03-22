@@ -59,7 +59,6 @@ class MainActivity : AppCompatActivity() {
             .setCancelable(false)
             .create()
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog.show() // TODO: remove?
         return dialog
     }
 
