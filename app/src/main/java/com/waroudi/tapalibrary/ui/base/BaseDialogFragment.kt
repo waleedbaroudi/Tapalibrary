@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.utils.createBindingInstance
+import com.waroudi.tapalibrary.utils.sendToCrashlytics
 
 abstract class BaseDialogFragment<VB: ViewBinding>: DialogFragment() {
     protected lateinit var binding: VB
@@ -59,7 +60,7 @@ abstract class BaseDialogFragment<VB: ViewBinding>: DialogFragment() {
         try {
             super.show(manager, this::class.java.canonicalName)
         } catch (e: Exception) {
-            // TODO: report to crashlytics
+            e.sendToCrashlytics()
         }
     }
 

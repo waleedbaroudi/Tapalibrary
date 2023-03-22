@@ -1,5 +1,7 @@
 package com.waroudi.tapalibrary.utils
 
+import com.google.firebase.crashlytics.ktx.crashlytics
+import com.google.firebase.ktx.Firebase
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import retrofit2.HttpException
 
@@ -24,4 +26,8 @@ fun ErrorConverter.extend(converter: ErrorConverter): ErrorConverter {
             invoke(exc)
         }
     }
+}
+
+fun Exception.sendToCrashlytics() {
+    Firebase.crashlytics.recordException(this)
 }

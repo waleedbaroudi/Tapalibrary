@@ -11,7 +11,7 @@ fun <T> Flow<T>.convertError(converter: ErrorConverter = ErrorUtils.defaultConve
                 emit(value)
             }
         } catch (e: Exception) {
-            // TODO: report to crashlytics
+            e.sendToCrashlytics()
             throw converter(e)
         }
     }
