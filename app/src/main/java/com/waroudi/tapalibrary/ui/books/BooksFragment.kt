@@ -1,6 +1,7 @@
 package com.waroudi.tapalibrary.ui.books
 
 import androidx.core.os.bundleOf
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.data.models.api.Book
@@ -32,7 +33,7 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>() {
 
     private fun handleBooks(books: List<Book>) {
         val booksAdapter = BooksAdapter(books, ::onBookClicked)
-        val manager = LinearLayoutManager(requireContext())
+        val manager = GridLayoutManager(requireContext(), 2)
         binding.recyclerBooks.apply {
             layoutManager = manager
             adapter = booksAdapter

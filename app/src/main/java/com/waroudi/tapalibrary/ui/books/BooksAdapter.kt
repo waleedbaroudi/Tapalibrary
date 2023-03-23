@@ -33,8 +33,8 @@ class BooksViewHolder(
     fun bind(book: Book) {
         with(binding) {
             tvTitle.text = book.title
-            tvAuthor.text = book.author
-            tvPrice.text = book.getFormattedPrice()
+//            tvAuthor.text = book.author
+//            tvPrice.text = book.getFormattedPrice()
             imgThumbnail.setGlideImage(book.getBookCoverUrl(), R.drawable.book_cover)
             root.setOnClickListener { onBookClickedListener(book) }
         }
