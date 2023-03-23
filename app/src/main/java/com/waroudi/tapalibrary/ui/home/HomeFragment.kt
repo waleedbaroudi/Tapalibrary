@@ -27,7 +27,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun showBookSearchDialog() {
         if (bookSearchDialog == null)
-            bookSearchDialog = InputDialog("Book Search", "Search", "Book ID") { inputID ->
+            bookSearchDialog = InputDialog("Book Search", "Search", "Book ID", R.drawable.ic_search) { inputID ->
                 navigate(R.id.action_home_to_details, bundleOf(Constants.KEY_SELECTED_BOOK_ID to inputID))
             }
 

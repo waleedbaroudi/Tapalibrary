@@ -16,9 +16,9 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:contentDescription="@null"
-        android:visibility="gone" />
+        app:tint="@color/primary" />
 
     <!--        style="@style/DarkTextStyle_24sp"-->
     <TextView
@@ -26,14 +26,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/tapa_bold"
         android:gravity="center"
         android:lineSpacingExtra="4sp"
         android:textColor="@color/primary"
+        android:textSize="24sp"
         tools:text="input title" />
 
     <!--        style="@style/LightTextStyle_16"-->
     <EditText
         android:id="@+id/edit_input"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -41,7 +44,6 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:lineSpacingExtra="4sp"
-        android:textColor="@color/dark_gray"
         tools:hint="input"
         tools:ignore="LabelFor" />
 
@@ -56,6 +58,7 @@
 
     <Button
         android:id="@+id/btn_okay"
+        style="@style/RegularButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

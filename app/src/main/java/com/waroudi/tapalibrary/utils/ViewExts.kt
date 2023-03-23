@@ -1,6 +1,7 @@
 package com.waroudi.tapalibrary.utils
 
 import android.content.Context
+import android.view.View
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -26,4 +27,16 @@ private fun getDefaultPlaceHolder(context: Context) = CircularProgressDrawable(c
     arrowEnabled = true
     setColorSchemeColors(R.color.primary)
     start()
+}
+
+fun View?.toGone() {
+    if (this == null) return
+    if (visibility == View.GONE) return
+    visibility = View.GONE
+}
+
+fun View?.toVisible() {
+    if (this == null) return
+    if (visibility == View.VISIBLE) return
+    visibility = View.VISIBLE
 }
