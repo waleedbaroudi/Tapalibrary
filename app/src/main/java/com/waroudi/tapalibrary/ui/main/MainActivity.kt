@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.databinding.ActivityMainBinding
 import com.waroudi.tapalibrary.databinding.LayoutProgressDialogBinding
-import com.waroudi.tapalibrary.ui.dialogs.ErrorDialog
+import com.waroudi.tapalibrary.ui.components.dialogs.ErrorDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

@@ -1,4 +1,4 @@
-package com.waroudi.tapalibrary.ui.dialogs
+package com.waroudi.tapalibrary.ui.components.dialogs
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes

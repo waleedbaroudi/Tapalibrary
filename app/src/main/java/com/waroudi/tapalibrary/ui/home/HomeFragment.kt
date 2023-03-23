@@ -4,7 +4,7 @@ import androidx.core.os.bundleOf
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.databinding.FragmentHomeBinding
 import com.waroudi.tapalibrary.ui.base.BaseFragment
-import com.waroudi.tapalibrary.ui.dialogs.InputDialog
+import com.waroudi.tapalibrary.ui.components.dialogs.InputDialog
 import com.waroudi.tapalibrary.utils.Constants
 import com.waroudi.tapalibrary.utils.navigate
 

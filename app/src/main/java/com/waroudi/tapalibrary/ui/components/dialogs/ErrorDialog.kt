@@ -1,4 +1,4 @@
-package com.waroudi.tapalibrary.ui.dialogs
+package com.waroudi.tapalibrary.ui.components.dialogs
 
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.databinding.DialogErrorBinding

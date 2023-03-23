@@ -41,7 +41,7 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
         with(binding) {
             tvTitle.text = book.title
             tvAuthor.text = book.author
-            tvPrice.text = book.getFormattedPrice()
+            tvPrice.text = book.getPrice().getFormattedPrice()
             val isbnLabel = "isbn: ${book.isbn}"
             tvIsbn.text = isbnLabel
 

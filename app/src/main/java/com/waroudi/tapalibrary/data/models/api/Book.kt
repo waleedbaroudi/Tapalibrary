@@ -1,6 +1,8 @@
 package com.waroudi.tapalibrary.data.models.api
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -8,10 +10,13 @@ data class Book(
     val id: Int,
     val title: String,
     val isbn: String,
-    val price: Int,
+    @SerializedName("price") val priceAmount: Int,
     val currencyCode: String,
-    val author: String
+    val author: String,
+
 ): Parcelable {
-    fun getFormattedPrice() = "$price $currencyCode"
+
+    fun getPrice() = Price(priceAmount, currencyCode)
+
     fun getBookCoverUrl() = "https://covers.openlibrary.org/b/ISBN/$isbn-L.jpg"
 }
