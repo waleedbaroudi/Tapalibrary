@@ -20,7 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/shape_bottom_curve"
-        android:outlineAmbientShadowColor="@color/black"
         app:layout_constraintDimensionRatio="2.2"
         app:layout_constraintTop_toBottomOf="@id/view_sheet" />
 
@@ -102,8 +101,8 @@
         android:text="Or search for a book"
         android:textColor="@color/white"
 
-        android:fontFamily="@font/tapa_regular"
-        android:textSize="18sp"
+        android:fontFamily="@font/tapa_light"
+        android:textSize="19sp"
 
         app:layout_constraintBottom_toTopOf="@+id/btn_book_search"
         app:layout_constraintEnd_toEndOf="parent"

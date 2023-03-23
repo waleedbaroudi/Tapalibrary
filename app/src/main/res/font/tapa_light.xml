@@ -2,7 +2,7 @@
 <font-family xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <font
-        app:font="@font/poppins_light_source"
+        app:font="@font/ubuntu_light"
         app:fontStyle="normal"
-        app:fontWeight="200" />
+        app:fontWeight="300" />
 </font-family>
