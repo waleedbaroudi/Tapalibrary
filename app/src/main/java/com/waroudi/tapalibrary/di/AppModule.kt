@@ -11,6 +11,7 @@ import com.waroudi.tapalibrary.data.repositories.BooksRepository
 import com.waroudi.tapalibrary.ui.book_details.BookDetailsViewModel
 import com.waroudi.tapalibrary.ui.books.BooksViewModel
 import com.waroudi.tapalibrary.ui.main.MainViewModel
+import com.waroudi.tapalibrary.utils.Constants
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -19,7 +20,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-private const val url = "http://tpbookserver.herokuapp.com/" // TODO: move to constants
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "tapalibrary_store")
 
 val appModule = module {
@@ -33,7 +33,7 @@ val appModule = module {
             .build()
 
         Retrofit.Builder()
-            .baseUrl(url)
+            .baseUrl(Constants.BACKEND_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()

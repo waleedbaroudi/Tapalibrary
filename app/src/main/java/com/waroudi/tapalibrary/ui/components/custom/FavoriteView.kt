@@ -16,9 +16,6 @@ class FavoriteView @JvmOverloads constructor(
 
     private val binding = ViewFavoriteBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun isFavoriteEnabled() = binding.animFavorite.frame in 29..56 //TODO: remove
-
-
     init {
         binding.animFavorite.addAnimatorListener(object : AnimatorListener {
             override fun onAnimationStart(animator: Animator) {
