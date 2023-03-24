@@ -45,7 +45,7 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>(), BookItemListener {
     }
 
     override fun onBookClicked(book: Book) {
-        val args = bundleOf(Constants.KEY_SELECTED_BOOK to book)
+        val args = bundleOf(Constants.KEY_SELECTED_BOOK_ID to book.id.toString())
         navigate(R.id.action_books_to_details, args)
     }
 
