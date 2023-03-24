@@ -9,4 +9,6 @@
     <string name="label_sells_at">Sells at</string>
     <string name="lbl_no_book_description">No description available</string>
     <string name="lbl_book_description_title">About the book</string>
+    <string name="snackbar_click_for_details">Click the card for details</string>
+    <string name="btn_show_details">Show details</string>
 </resources>

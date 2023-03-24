@@ -5,6 +5,8 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.data.models.error.TapaError
 import com.waroudi.tapalibrary.databinding.ActivityMainBinding
 import com.waroudi.tapalibrary.databinding.LayoutProgressDialogBinding

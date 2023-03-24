@@ -46,13 +46,14 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
 
     private fun setupCardBehavior() {
         with(binding) {
-            cardBook.setOnClickListener {
+            btnDetails.setOnClickListener {
                 val isFront = cardBook.rotationY == 0f
                 val inView = if (isFront) layoutBack else layoutFront
                 val outView = if (isFront) layoutFront else layoutBack
                 outView.animate().alpha(0f).setDuration(150).start()
                 cardBook.animate().rotationY(if (isFront) 180f else 0f).setDuration(400).start()
                 inView.animate().alpha(1f).setStartDelay(200).setDuration(150).start()
+                btnDetails.text = if (isFront) "Hide Details" else "Show Details"
             }
         }
     }
