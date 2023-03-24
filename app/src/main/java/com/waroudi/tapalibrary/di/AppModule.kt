@@ -22,10 +22,14 @@ import java.util.concurrent.TimeUnit
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "tapalibrary_store")
 
+/**
+ * Koin module containing all app dependencies
+ */
 val appModule = module {
 
     // API
     factory {
+        // Set timeout configurations
         val client = OkHttpClient.Builder()
             .writeTimeout(2, TimeUnit.MINUTES)
             .connectTimeout(20, TimeUnit.SECONDS)
@@ -38,7 +42,6 @@ val appModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
     single { get<Retrofit>().create(BookApi::class.java) }
 
     // Services

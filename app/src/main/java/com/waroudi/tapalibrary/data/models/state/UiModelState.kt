@@ -2,6 +2,9 @@ package com.waroudi.tapalibrary.data.models.state
 
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 
+/**
+ * A state model for the UI
+ */
 sealed class UiModelState<out R> {
     data class Success<out T>(val data: T) : UiModelState<T>()
     data class Error(val exception: TapaLibraryError) : UiModelState<Nothing>()
@@ -18,8 +21,16 @@ sealed class UiModelState<out R> {
     }
 }
 
+/**
+ * Check if the state is a success
+ * @return true if the state is [UiModelState.Success] and its data is not null, false otherwise
+ */
 val UiModelState<*>.succeeded
     get() = this is UiModelState.Success && data != null
 
+/**
+ * Get data of the current state, if available
+ * @return data of type [T], or null if not available
+ */
 val <T> UiModelState<T>.data: T?
     get() = (this as? UiModelState.Success)?.data

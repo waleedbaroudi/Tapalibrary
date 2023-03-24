@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.*
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
-// put
+// DataStore extensions for storing data
 suspend fun DataStore<Preferences>.putString(key: String, value: String) = put(stringPreferencesKey(key), value)
 suspend fun DataStore<Preferences>.putInt(key: String, value: Int) = put(intPreferencesKey(key), value)
 suspend fun DataStore<Preferences>.putBoolean(key: String, value: Boolean) = put(booleanPreferencesKey(key), value)
@@ -15,7 +15,7 @@ suspend fun DataStore<Preferences>.putFloat(key: String, value: Float) = put(flo
 suspend fun DataStore<Preferences>.putDouble(key: String, value: Double) = put(doublePreferencesKey(key), value)
 suspend fun DataStore<Preferences>.putStringSet(key: String, value: Set<String>) = put(stringSetPreferencesKey(key), value)
 
-// get
+// DataStore extensions for retrieving data
 suspend fun DataStore<Preferences>.getString(key: String) = get(stringPreferencesKey(key))
 suspend fun DataStore<Preferences>.getInt(key: String) = get(intPreferencesKey(key))
 suspend fun DataStore<Preferences>.getBoolean(key: String) = get(booleanPreferencesKey(key))
@@ -24,7 +24,9 @@ suspend fun DataStore<Preferences>.getFloat(key: String) = get(floatPreferencesK
 suspend fun DataStore<Preferences>.getDouble(key: String) = get(doublePreferencesKey(key))
 suspend fun DataStore<Preferences>.getStringSet(key: String) = get(stringSetPreferencesKey(key))
 
-// clear
+/**
+ * Clears all data in the current DataStore
+ */
 fun DataStore<Preferences>.clear() =
     runBlocking {
         edit { it.clear() }

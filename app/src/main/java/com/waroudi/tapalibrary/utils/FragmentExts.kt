@@ -9,14 +9,28 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
 
+/**
+ * Navigates between destinations
+ * @param actionId the ID of the navigation actions
+ * @param args optional arguments bundle
+ */
 fun Fragment.navigate(@IdRes actionId:  Int, args: Bundle? = null) {
     findNavController().navigate(actionId, args)
 }
 
+/**
+ * Navigates up in the navigation stack
+ */
 fun Fragment.navigateBack() {
     findNavController().navigateUp()
 }
 
+/**
+ * Generically creates a [ViewBinding] instance of type [VB]
+ * @param inflater the inflater to inflate the ViewBinding
+ * @param container a [ViewGroup] for layout inflation of the view binding
+ * @return a [ViewBinding] object of type [VB]
+ */
 fun <VB : ViewBinding> Fragment.createBindingInstance(
     inflater: LayoutInflater,
     container: ViewGroup? = null

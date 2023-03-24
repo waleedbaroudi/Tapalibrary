@@ -10,8 +10,16 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 
+/**
+ * Manages data through the book service
+ * @param bookApi a [BookApi] to provide service methods
+ */
 class BooksService(private val bookApi: BookApi) {
 
+    /**
+     * Retrieve all books from the book service
+     * @return list of retrieved books
+     */
     fun getAllBooks(): Flow<List<Book>> {
         return flow {
             val result = bookApi.getAllBooks()
@@ -19,7 +27,13 @@ class BooksService(private val bookApi: BookApi) {
         }.convertError()
     }
 
+    /**
+     * Retrieve a given book by ID from the book service
+     * @param id the ID of the requested book
+     * @return the book with the given ID, if it exists
+     */
     fun getBookByID(id: String): Flow<Book> {
+        // Extend the default converter to handle 404 errors for this request
         val converter = ErrorUtils.defaultConverter.extend { error ->
             if (error is HttpException && (error.code() == 404)) {
                 TapaLibraryError.BookNotFoundError

@@ -5,10 +5,15 @@ import com.google.firebase.ktx.Firebase
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import retrofit2.HttpException
 
+/**
+ * A lambda that converts an [Exception] into a [TapaLibraryError]
+ */
 typealias ErrorConverter = (error: Exception) -> TapaLibraryError
 
 object ErrorUtils {
-
+    /**
+     * Default [ErrorConverter] for general errors
+     */
     val defaultConverter: ErrorConverter = { error ->
         when {
             error is HttpException -> TapaLibraryError.NetworkError
@@ -18,6 +23,9 @@ object ErrorUtils {
     }
 }
 
+/**
+ * Extension for adding conversion rules to the current converter
+ */
 fun ErrorConverter.extend(converter: ErrorConverter): ErrorConverter {
     return { error ->
         try {
@@ -28,6 +36,9 @@ fun ErrorConverter.extend(converter: ErrorConverter): ErrorConverter {
     }
 }
 
+/**
+ * Reports this exception to Crashlytics
+ */
 fun Exception.sendToCrashlytics() {
     Firebase.crashlytics.recordException(this)
 }

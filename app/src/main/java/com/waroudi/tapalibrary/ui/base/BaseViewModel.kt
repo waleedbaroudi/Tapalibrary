@@ -2,18 +2,21 @@ package com.waroudi.tapalibrary.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.data.models.state.data
 import com.waroudi.tapalibrary.data.models.state.succeeded
 import com.waroudi.tapalibrary.utils.doOnError
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 
 abstract class BaseViewModel : ViewModel() {
+    /**
+     * A wrapper for handling flow collection
+     * @param input the flow to be collected
+     * @param mutableStateFlow a state flow to receive flow collection events (e.g. loading, success)
+     * @param cached a flag to emit already fetched data, if it exists
+     */
     protected fun <T> flowWrapper(
         input: Flow<T>,
         mutableStateFlow: MutableStateFlow<UiModelState<T>>,

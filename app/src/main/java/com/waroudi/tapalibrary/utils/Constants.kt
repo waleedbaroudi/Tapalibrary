@@ -1,7 +1,6 @@
 package com.waroudi.tapalibrary.utils
 
 object Constants {
-
     // URLs
     const val BACKEND_URL = "http://tpbookserver.herokuapp.com/"
 

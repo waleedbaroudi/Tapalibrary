@@ -9,6 +9,7 @@ class TapaLibraryApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        // Start Koin and load modules
         startKoin {
             androidContext(this@TapaLibraryApplication)
             modules(listOf(appModule))
