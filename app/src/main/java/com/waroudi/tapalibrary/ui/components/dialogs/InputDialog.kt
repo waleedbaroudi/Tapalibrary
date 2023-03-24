@@ -8,6 +8,14 @@ import com.waroudi.tapalibrary.utils.hideSoftKeyboard
 import com.waroudi.tapalibrary.utils.toGone
 import com.waroudi.tapalibrary.utils.toVisible
 
+/**
+ * Custom dialog for taking user input
+ * @param title the input title
+ * @param buttonTitle the label of the button
+ * @param inputHint the hint shown on the input field
+ * @param icon an optional icon resource
+ * @param buttonAction the action to be performed with the given input
+ */
 class InputDialog
     (
     private val title: String,
@@ -29,7 +37,7 @@ class InputDialog
         }
     }
 
-    override fun setupListeners() {
+    override fun setupListeners() { // TODO: disable button when field empty
         with(binding) {
             btnOkay.setOnClickListener {
                 root.hideSoftKeyboard()

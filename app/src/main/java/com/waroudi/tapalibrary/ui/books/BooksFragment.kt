@@ -24,13 +24,17 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>(), BookItemListener {
             observeFlow(bookList,
                 success = { handleBooks(it) },
                 error = {
-                    showDialogError(it) { navigateBack() }
+                    showDialogError(it, forcePerformAction = true) { navigateBack() }
                 })
             getAllBooks()
         }
 
     }
 
+    /**
+     * Handles the retrieved list of books, sets up the book recycler view
+     * @param books list of retrieved books
+     */
     private fun handleBooks(books: List<Book>) {
         val favorites = viewModel.getFavoritesIds()
         val booksAdapter = BooksAdapter(books, favorites, this)

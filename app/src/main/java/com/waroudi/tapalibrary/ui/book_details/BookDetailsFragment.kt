@@ -14,6 +14,7 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
     private val viewModel: BookDetailsViewModel by viewModel()
 
     override fun handleArgs() {
+        // Receive Book or book ID from previous fragment
         arguments?.let { args ->
             args.getSafeParcelable<Book>(Constants.KEY_SELECTED_BOOK)?.let {
                 viewModel.setBook(it)
@@ -28,6 +29,7 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
     }
 
     override fun setupListeners() {
+        // setup favorite icon behavior
         binding.viewFavorite.apply {
             setOnClickListener {
                 val newState = viewModel.changeFavoriteState()
@@ -42,6 +44,10 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
             error = { handleBookError(it) })
     }
 
+    /**
+     * Applies retrieved Book to UI
+     * @param book retrieved book
+     */
     private fun handleBook(book: Book) {
         with(binding) {
             groupElements.toVisible()
@@ -55,9 +61,13 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
         }
     }
 
+    /**
+     * Handles book retrieval error
+     * @param error book retrieval error
+     */
     private fun handleBookError(error: TapaLibraryError? = null) {
         error?.let {
-            showDialogError(it) { navigateBack() }
+            showDialogError(it, forcePerformAction = true) { navigateBack() }
         }
     }
 }

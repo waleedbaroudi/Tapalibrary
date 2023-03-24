@@ -1,7 +1,5 @@
 package com.waroudi.tapalibrary.ui.book_details
 
-import android.util.Log
-import com.bumptech.glide.load.data.DataRewinder
 import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.data.models.state.data
@@ -18,13 +16,23 @@ class BookDetailsViewModel(private val booksRepository: BooksRepository) : BaseV
         flowWrapper(booksRepository.getBookById(id), _book)
     }
 
+    /**
+     * Sets the book model to a given [Book]
+     * @param book the book to be set
+     */
     fun setBook(book: Book) {
         _book.value = UiModelState.Success(book)
     }
 
+    /**
+     * Checks whether the current book model is marked as favorite
+     */
     fun isBookFavorite() =
         _book.value.data?.let { booksRepository.isBookFavorite(it) } ?: false
 
+    /**
+     * Changes the favorite state of the current book
+     */
     fun changeFavoriteState() = _book.value.data?.let {
         booksRepository.changeFavoriteState(it)
     } ?: false

@@ -1,13 +1,10 @@
 package com.waroudi.tapalibrary.ui.main
 
-import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.databinding.ActivityMainBinding
 import com.waroudi.tapalibrary.databinding.LayoutProgressDialogBinding
@@ -31,18 +28,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun subscribeUI() {
+        // Observe progress queue. when queue is 0, hide progress.
         viewModel.progressCounter.observe(this) {
             if (it == 0) hideProgress()
             else showProgress()
         }
     }
 
+    /**
+     * Update progress queue
+     * @param show whether to queue showing or hiding the progress
+     */
     fun updateProgress(show: Boolean) {
         viewModel.updateProgress(show)
     }
 
     private fun isProgressShowing(): Boolean = progressDialog?.isShowing == true
 
+    /**
+     * Instantiates the progress dialog (if not already), and shows it if it's not visible
+     */
     private fun showProgress() {
         if (isProgressShowing().not()) {
             if (progressDialog == null) progressDialog = createProgressLoading()
@@ -50,8 +55,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Hides progress dialog
+     */
     private fun hideProgress() = progressDialog?.dismiss()
 
+    /**
+     * Creates a progress dialog instance
+     * @return a progress dialog
+     */
     private fun createProgressLoading(): AlertDialog {
         val binding = LayoutProgressDialogBinding.inflate(layoutInflater)
         val dialog = AlertDialog.Builder(this)
@@ -62,14 +74,20 @@ class MainActivity : AppCompatActivity() {
         return dialog
     }
 
+    /**
+     * Shows an [ErrorDialog]. See linked documentation for further details
+     * @param exception the error to show the dialog for
+     */
     fun showDialogError(
         exception: TapaLibraryError,
         btnText: String?,
+        forcePerformAction: Boolean = false,
         action: (() -> Unit)?
     ) {
         ErrorDialog(
             message = exception.safeMessage(),
             buttonText = btnText,
+            forcePerformAction,
             action = action
         ).show(supportFragmentManager)
     }

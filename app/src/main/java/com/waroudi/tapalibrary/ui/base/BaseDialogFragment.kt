@@ -25,6 +25,9 @@ abstract class BaseDialogFragment<VB: ViewBinding>: DialogFragment() {
         setupListeners()
     }
 
+    /**
+     * Adjust dialog size to fit contents
+     */
     private fun adjustDialog() { // TODO: do it better
         if (dialog == null) {
             return
@@ -55,6 +58,9 @@ abstract class BaseDialogFragment<VB: ViewBinding>: DialogFragment() {
         adjustDialog()
     }
 
+    /**
+     * Shows the dialog with a default tag, if not visible already
+     */
     fun show(manager: FragmentManager) {
         if (isVisible) return
         try {
@@ -64,6 +70,10 @@ abstract class BaseDialogFragment<VB: ViewBinding>: DialogFragment() {
         }
     }
 
+    /**
+     * Safely dismisses the dialog if visible.
+     * safe from state related errors
+     */
     fun safeDismiss() {
         if (isVisible.not()) return
         dismissAllowingStateLoss()

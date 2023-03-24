@@ -1,12 +1,22 @@
 package com.waroudi.tapalibrary.ui.components.dialogs
 
+import android.content.DialogInterface
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.databinding.DialogErrorBinding
 import com.waroudi.tapalibrary.ui.base.BaseDialogFragment
 
+/**
+ * Custom dialog for displaying errors
+ * @param message the error message to be shown
+ * @param buttonText the label of the button
+ * @param forcePerformAction if true, the given action will always be performed when the dialog is dismissed. Otherwise the action will only be invoked from
+ * the button click
+ * @param action the action to be performed from this dialog
+ */
 class ErrorDialog(
     private val message: String,
     private val buttonText: String? = null,
+    private val forcePerformAction: Boolean = false,
     private val action: (() -> Unit)? = null
 ) : BaseDialogFragment<DialogErrorBinding>() {
 
@@ -20,8 +30,15 @@ class ErrorDialog(
 
     override fun setupListeners() {
         binding.btnOkay.setOnClickListener {
-            action?.invoke()
+            if (forcePerformAction.not())
+                action?.invoke()
             safeDismiss()
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface) {
+        super.onDismiss(dialog)
+        if (forcePerformAction)
+            action?.invoke()
     }
 }

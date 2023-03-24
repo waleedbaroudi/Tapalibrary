@@ -8,6 +8,9 @@ import android.view.LayoutInflater
 import android.widget.FrameLayout
 import com.waroudi.tapalibrary.databinding.ViewFavoriteBinding
 
+/**
+ * Custom view for denoting book favorite state
+ */
 class FavoriteView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -19,10 +22,12 @@ class FavoriteView @JvmOverloads constructor(
     init {
         binding.animFavorite.addAnimatorListener(object : AnimatorListener {
             override fun onAnimationStart(animator: Animator) {
+                // Disable interaction when animation starts
                 binding.root.isEnabled = false
             }
 
             override fun onAnimationEnd(animator: Animator) {
+                // Enable interaction when animation ends
                 binding.root.isEnabled = true
             }
 
@@ -33,11 +38,17 @@ class FavoriteView @JvmOverloads constructor(
         })
     }
 
+    /**
+     * Sets the state of the view (i.e. favorite or not favorite)
+     * @param enabled the state to be set
+     * @param animate whether to animate to the given state or just set it
+     */
     fun setFavorite(enabled: Boolean, animate: Boolean = false) {
         binding.animFavorite.apply {
             if (animate.not()) {
                 progress = if (enabled) 0.5f else 0f
             } else {
+                // These frame values are specific to the set animation file
                 if (enabled) setMinAndMaxFrame(7, 30) else setMinAndMaxFrame(55, 76)
                 playAnimation()
             }

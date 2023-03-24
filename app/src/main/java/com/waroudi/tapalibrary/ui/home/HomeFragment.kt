@@ -25,6 +25,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
     }
 
+    /**
+     * Shows an input dialog for searching for a book by ID
+     */
     private fun showBookSearchDialog() {
         if (bookSearchDialog == null)
             bookSearchDialog = InputDialog("Book Search", "Search", "Book ID", R.drawable.ic_search) { inputID ->
