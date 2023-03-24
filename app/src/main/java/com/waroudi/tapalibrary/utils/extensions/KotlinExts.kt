@@ -1,4 +1,4 @@
-package com.waroudi.tapalibrary.utils
+package com.waroudi.tapalibrary.utils.extensions
 
 import android.os.Build
 import android.os.Bundle

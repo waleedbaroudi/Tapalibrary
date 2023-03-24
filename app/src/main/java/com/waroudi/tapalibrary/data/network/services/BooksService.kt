@@ -4,7 +4,7 @@ import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.data.network.api.BookApi
 import com.waroudi.tapalibrary.utils.ErrorUtils
-import com.waroudi.tapalibrary.utils.convertError
+import com.waroudi.tapalibrary.utils.extensions.convertError
 import com.waroudi.tapalibrary.utils.extend
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

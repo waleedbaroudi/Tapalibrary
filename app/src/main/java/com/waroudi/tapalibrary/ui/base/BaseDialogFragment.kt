@@ -7,7 +7,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.waroudi.tapalibrary.R
-import com.waroudi.tapalibrary.utils.createBindingInstance
+import com.waroudi.tapalibrary.utils.extensions.createBindingInstance
 import com.waroudi.tapalibrary.utils.sendToCrashlytics
 
 abstract class BaseDialogFragment<VB: ViewBinding>: DialogFragment() {

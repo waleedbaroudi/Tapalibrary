@@ -6,7 +6,7 @@ import com.waroudi.tapalibrary.databinding.FragmentHomeBinding
 import com.waroudi.tapalibrary.ui.base.BaseFragment
 import com.waroudi.tapalibrary.ui.components.dialogs.InputDialog
 import com.waroudi.tapalibrary.utils.Constants
-import com.waroudi.tapalibrary.utils.navigate
+import com.waroudi.tapalibrary.utils.extensions.navigate
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 

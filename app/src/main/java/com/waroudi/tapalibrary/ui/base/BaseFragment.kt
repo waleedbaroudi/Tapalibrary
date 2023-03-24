@@ -10,11 +10,10 @@ import androidx.viewbinding.ViewBinding
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.ui.main.MainActivity
-import com.waroudi.tapalibrary.utils.createBindingInstance
+import com.waroudi.tapalibrary.utils.extensions.createBindingInstance
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import java.lang.reflect.ParameterizedType
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected lateinit var binding: VB

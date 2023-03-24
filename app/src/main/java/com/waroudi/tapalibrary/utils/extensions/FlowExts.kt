@@ -1,6 +1,9 @@
-package com.waroudi.tapalibrary.utils
+package com.waroudi.tapalibrary.utils.extensions
 
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
+import com.waroudi.tapalibrary.utils.ErrorConverter
+import com.waroudi.tapalibrary.utils.ErrorUtils
+import com.waroudi.tapalibrary.utils.sendToCrashlytics
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 

@@ -2,14 +2,13 @@ package com.waroudi.tapalibrary.ui.books
 
 import androidx.core.os.bundleOf
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.databinding.FragmentBooksBinding
 import com.waroudi.tapalibrary.ui.base.BaseFragment
 import com.waroudi.tapalibrary.utils.Constants
-import com.waroudi.tapalibrary.utils.navigate
-import com.waroudi.tapalibrary.utils.navigateBack
+import com.waroudi.tapalibrary.utils.extensions.navigate
+import com.waroudi.tapalibrary.utils.extensions.navigateBack
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BooksFragment : BaseFragment<FragmentBooksBinding>(), BookItemListener {

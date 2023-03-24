@@ -6,6 +6,7 @@ import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.databinding.FragmentBookDetailsBinding
 import com.waroudi.tapalibrary.ui.base.BaseFragment
 import com.waroudi.tapalibrary.utils.*
+import com.waroudi.tapalibrary.utils.extensions.navigateBack
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.data.models.state.data
 import com.waroudi.tapalibrary.data.models.state.succeeded
-import com.waroudi.tapalibrary.utils.doOnError
+import com.waroudi.tapalibrary.utils.extensions.doOnError
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
