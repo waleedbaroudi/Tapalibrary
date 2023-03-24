@@ -15,4 +15,8 @@ class BooksViewModel(private val repository: BooksRepository) : BaseViewModel() 
     fun getAllBooks() {
         flowWrapper(repository.getAllBooks(), _bookList, true)
     }
+    
+    fun getFavoritesIds() = repository.getFavoritesIds()
+    
+    fun changeFavoriteState(book:Book) = repository.changeFavoriteState(book)
 }

@@ -1,5 +1,10 @@
 package com.waroudi.tapalibrary.di
 
+import android.content.Context
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import com.waroudi.tapalibrary.data.local.TapaLocalStorage
 import com.waroudi.tapalibrary.data.network.api.BookApi
 import com.waroudi.tapalibrary.data.network.services.BooksService
 import com.waroudi.tapalibrary.data.repositories.BooksRepository
@@ -7,6 +12,7 @@ import com.waroudi.tapalibrary.ui.book_details.BookDetailsViewModel
 import com.waroudi.tapalibrary.ui.books.BooksViewModel
 import com.waroudi.tapalibrary.ui.main.MainViewModel
 import okhttp3.OkHttpClient
+import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -14,6 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
 private const val url = "http://tpbookserver.herokuapp.com/" // TODO: move to constants
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "tapalibrary_store")
 
 val appModule = module {
 
@@ -37,8 +44,11 @@ val appModule = module {
     // Services
     single { BooksService(get()) }
 
+    // Local Storages
+    single { TapaLocalStorage(androidApplication().dataStore) }
+
     // Repositories
-    single { BooksRepository(get()) }
+    single { BooksRepository(get(), get()) }
 
     // ViewModels
     viewModel { MainViewModel() }

@@ -12,7 +12,7 @@ import com.waroudi.tapalibrary.utils.navigate
 import com.waroudi.tapalibrary.utils.navigateBack
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class BooksFragment : BaseFragment<FragmentBooksBinding>() {
+class BooksFragment : BaseFragment<FragmentBooksBinding>(), BookItemListener {
 
     private val viewModel: BooksViewModel by viewModel()
 
@@ -32,7 +32,8 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>() {
     }
 
     private fun handleBooks(books: List<Book>) {
-        val booksAdapter = BooksAdapter(books, ::onBookClicked)
+        val favorites = viewModel.getFavoritesIds()
+        val booksAdapter = BooksAdapter(books, favorites, this)
         val manager = GridLayoutManager(requireContext(), 2)
         binding.recyclerBooks.apply {
             layoutManager = manager
@@ -40,8 +41,13 @@ class BooksFragment : BaseFragment<FragmentBooksBinding>() {
         }
     }
 
-    private fun onBookClicked(book: Book) {
+    override fun onBookClicked(book: Book) {
         val args = bundleOf(Constants.KEY_SELECTED_BOOK to book)
         navigate(R.id.action_books_to_details, args)
+    }
+
+    override fun onBookFavoriteClicked(book: Book, action: (newState: Boolean) -> Unit) {
+        val newState = viewModel.changeFavoriteState(book)
+        action(newState)
     }
 }

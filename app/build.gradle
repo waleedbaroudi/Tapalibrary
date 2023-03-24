@@ -93,5 +93,8 @@ dependencies {
     // Crashlytics
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
 
+    // // Datastore
+    api "androidx.datastore:datastore-preferences:$datastoreVersion"
+
 
 }
