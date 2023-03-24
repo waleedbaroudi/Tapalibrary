@@ -14,6 +14,8 @@
 
     <color name="primary">#64d07a</color>
     <color name="primary_disabled">#61956C</color>
-    <color name="accent">#43cfd9</color>
+    <color name="secondary">#43cfd9</color>
+    <color name="accent">#E28F00</color>
+
 
 </resources>

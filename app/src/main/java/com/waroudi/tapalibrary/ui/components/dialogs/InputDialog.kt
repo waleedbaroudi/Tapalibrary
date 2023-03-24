@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
 import com.waroudi.tapalibrary.databinding.DialogInputBinding
 import com.waroudi.tapalibrary.ui.base.BaseDialogFragment
+import com.waroudi.tapalibrary.utils.hideSoftKeyboard
 import com.waroudi.tapalibrary.utils.toGone
 import com.waroudi.tapalibrary.utils.toVisible
 
@@ -31,6 +32,7 @@ class InputDialog
     override fun setupListeners() {
         with(binding) {
             btnOkay.setOnClickListener {
+                root.hideSoftKeyboard()
                 val input = editInput.text.toString()
                 buttonAction(input)
                 safeDismiss()

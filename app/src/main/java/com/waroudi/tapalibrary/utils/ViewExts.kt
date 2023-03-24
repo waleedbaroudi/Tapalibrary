@@ -2,6 +2,7 @@ package com.waroudi.tapalibrary.utils
 
 import android.content.Context
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -39,4 +40,9 @@ fun View?.toVisible() {
     if (this == null) return
     if (visibility == View.VISIBLE) return
     visibility = View.VISIBLE
+}
+
+fun View.hideSoftKeyboard() {
+    val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(this.windowToken, 0)
 }

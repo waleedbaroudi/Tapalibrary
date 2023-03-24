@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:contentDescription="@null"
-        android:src="@drawable/ic_error" />
+        android:src="@drawable/ic_error"
+        app:tint="@color/accent"/>
 
     <!--        style="@style/DarkTextStyle_24sp"-->
     <TextView
@@ -27,8 +28,10 @@
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:lineSpacingExtra="4sp"
+        android:fontFamily="@font/tapa_bold"
+        android:textSize="20sp"
         android:text="@string/label_error_title"
-        android:textColor="@color/primary" />
+        android:textColor="@color/accent" />
 
     <!--        style="@style/LightTextStyle_16"-->
     <TextView
@@ -39,24 +42,18 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:lineSpacingExtra="4sp"
+        android:fontFamily="@font/tapa_regular"
         android:textColor="@color/dark_gray"
         tools:text="unknown" />
 
-    <!--        <Button-->
-    <!--            android:id="@+id/btn_okay"-->
-    <!--            style="@style/RegularButtonStyle"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="@string/msg_btn_continue"-->
-    <!--            android:layout_gravity="center"-->
-    <!--            android:layout_marginTop="@dimen/margin_30"/>-->
-
     <Button
         android:id="@+id/btn_okay"
+        style="@style/AccentButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
+        android:backgroundTint="#E28F00"
         android:text="@string/btn_error_confirm" />
 
 </LinearLayout>
