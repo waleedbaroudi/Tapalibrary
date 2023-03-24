@@ -1,7 +1,11 @@
 package com.waroudi.tapalibrary.ui.components.dialogs
 
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.TextView.OnEditorActionListener
 import androidx.annotation.DrawableRes
 import androidx.annotation.IdRes
+import androidx.core.widget.addTextChangedListener
 import com.waroudi.tapalibrary.databinding.DialogInputBinding
 import com.waroudi.tapalibrary.ui.base.BaseDialogFragment
 import com.waroudi.tapalibrary.utils.hideSoftKeyboard
@@ -37,13 +41,19 @@ class InputDialog
         }
     }
 
-    override fun setupListeners() { // TODO: disable button when field empty
+    override fun setupListeners() {
         with(binding) {
+            // Setup button action
             btnOkay.setOnClickListener {
                 root.hideSoftKeyboard()
                 val input = editInput.text.toString()
                 buttonAction(input)
                 safeDismiss()
+            }
+            editInput.addTextChangedListener {
+                it?.toString()?.let { text ->
+                    btnOkay.isEnabled = text.isBlank().not()
+                }
             }
         }
     }
