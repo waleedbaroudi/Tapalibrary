@@ -1,13 +1,13 @@
 package com.waroudi.tapalibrary.data.models.state
 
-import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
+import com.waroudi.tapalibrary.data.models.error.TapaError
 
 /**
  * A state model for the UI
  */
 sealed class UiModelState<out R> {
     data class Success<out T>(val data: T) : UiModelState<T>()
-    data class Error(val exception: TapaLibraryError) : UiModelState<Nothing>()
+    data class Error(val exception: TapaError) : UiModelState<Nothing>()
     object Loading : UiModelState<Nothing>()
     object None : UiModelState<Nothing>()
 

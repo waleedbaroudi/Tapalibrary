@@ -2,6 +2,7 @@ package com.waroudi.tapalibrary.data.repositories
 
 import com.waroudi.tapalibrary.data.local.TapaLocalStorage
 import com.waroudi.tapalibrary.data.models.api.Book
+import com.waroudi.tapalibrary.data.models.api.TapaResult
 import com.waroudi.tapalibrary.data.network.services.BooksService
 import kotlinx.coroutines.flow.Flow
 
@@ -12,8 +13,8 @@ import kotlinx.coroutines.flow.Flow
  */
 class BooksRepository(private val service: BooksService, private val localStore: TapaLocalStorage) {
     // Service
-    fun getAllBooks(): Flow<List<Book>> = service.getAllBooks()
-    fun getBookById(id: String): Flow<Book> = service.getBookByID(id)
+    fun getAllBooks(): Flow<TapaResult<List<Book>>> = service.getAllBooks()
+    fun getBookById(id: String): Flow<TapaResult<Book>> = service.getBookByID(id)
 
     // Local
     fun getFavoritesIds(): List<String> = localStore.getFavoriteIDs()

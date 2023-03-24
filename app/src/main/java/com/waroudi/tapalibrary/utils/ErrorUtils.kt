@@ -2,13 +2,14 @@ package com.waroudi.tapalibrary.utils
 
 import com.google.firebase.crashlytics.ktx.crashlytics
 import com.google.firebase.ktx.Firebase
-import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
+import com.waroudi.tapalibrary.data.models.error.TapaError
+import com.waroudi.tapalibrary.utils.extensions.notNull
 import retrofit2.HttpException
 
 /**
- * A lambda that converts an [Exception] into a [TapaLibraryError]
+ * A lambda that converts an [Exception] into a [TapaError]
  */
-typealias ErrorConverter = (error: Exception) -> TapaLibraryError
+typealias ErrorConverter = (error: Exception) -> TapaError
 
 object ErrorUtils {
     /**
@@ -16,9 +17,11 @@ object ErrorUtils {
      */
     val defaultConverter: ErrorConverter = { error ->
         when {
-            error is HttpException -> TapaLibraryError.NetworkError
-            error.message.notNull() -> TapaLibraryError.OtherError(error.message, error)
-            else -> TapaLibraryError.UnknownError
+            error is HttpException -> {
+                TapaError.NetworkError
+            }
+            error.message.notNull() -> TapaError.OtherError(error.message, error)
+            else -> TapaError.UnknownError
         }
     }
 }

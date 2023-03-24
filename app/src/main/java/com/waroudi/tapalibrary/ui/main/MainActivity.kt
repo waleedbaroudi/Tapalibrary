@@ -5,7 +5,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
+import com.waroudi.tapalibrary.data.models.error.TapaError
 import com.waroudi.tapalibrary.databinding.ActivityMainBinding
 import com.waroudi.tapalibrary.databinding.LayoutProgressDialogBinding
 import com.waroudi.tapalibrary.ui.components.dialogs.ErrorDialog
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
      * @param exception the error to show the dialog for
      */
     fun showDialogError(
-        exception: TapaLibraryError,
+        exception: TapaError,
         btnText: String?,
         forcePerformAction: Boolean = false,
         action: (() -> Unit)?

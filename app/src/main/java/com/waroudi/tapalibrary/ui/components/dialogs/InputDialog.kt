@@ -1,16 +1,12 @@
 package com.waroudi.tapalibrary.ui.components.dialogs
 
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.TextView.OnEditorActionListener
 import androidx.annotation.DrawableRes
-import androidx.annotation.IdRes
 import androidx.core.widget.addTextChangedListener
 import com.waroudi.tapalibrary.databinding.DialogInputBinding
 import com.waroudi.tapalibrary.ui.base.BaseDialogFragment
-import com.waroudi.tapalibrary.utils.hideSoftKeyboard
-import com.waroudi.tapalibrary.utils.toGone
-import com.waroudi.tapalibrary.utils.toVisible
+import com.waroudi.tapalibrary.utils.extensions.hideSoftKeyboard
+import com.waroudi.tapalibrary.utils.extensions.toGone
+import com.waroudi.tapalibrary.utils.extensions.toVisible
 
 /**
  * Custom dialog for taking user input

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
-import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
+import com.waroudi.tapalibrary.data.models.error.TapaError
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.ui.main.MainActivity
 import com.waroudi.tapalibrary.utils.extensions.createBindingInstance
@@ -75,7 +75,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         stateFlow: StateFlow<UiModelState<T>>,
         loading: (() -> Unit)? = { showProgress(true) },
         success: ((T) -> Unit)? = null,
-        error: ((TapaLibraryError) -> Unit)? = { showDialogError(it) },
+        error: ((TapaError) -> Unit)? = { showDialogError(it) },
         end: (() -> Unit)? = null,
         ignoreLoading: Boolean = false,
         ignoreError: Boolean = false,
@@ -122,7 +122,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
      * Shows a [com.waroudi.tapalibrary.ui.components.dialogs.ErrorDialog]. See linked documentation for further details
      */
     fun showDialogError(
-        exception: TapaLibraryError = TapaLibraryError.UnknownError,
+        exception: TapaError = TapaError.UnknownError,
         buttonText: String? = null,
         forcePerformAction: Boolean = false,
         action: (() -> Unit)? = null

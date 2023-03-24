@@ -2,6 +2,8 @@ package com.waroudi.tapalibrary.ui.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.waroudi.tapalibrary.data.models.api.TapaResult
+import com.waroudi.tapalibrary.data.models.error.TapaError
 import com.waroudi.tapalibrary.data.models.state.UiModelState
 import com.waroudi.tapalibrary.data.models.state.data
 import com.waroudi.tapalibrary.data.models.state.succeeded
@@ -18,7 +20,7 @@ abstract class BaseViewModel : ViewModel() {
      * @param cached a flag to emit already fetched data, if it exists
      */
     protected fun <T> flowWrapper(
-        input: Flow<T>,
+        input: Flow<TapaResult<T>>,
         mutableStateFlow: MutableStateFlow<UiModelState<T>>,
         cached: Boolean = false
     ) {
@@ -33,7 +35,13 @@ abstract class BaseViewModel : ViewModel() {
                 input.doOnError {
                     mutableStateFlow.value = UiModelState.Error(it)
                 }.collect { result ->
-                    mutableStateFlow.value = UiModelState.Success(result)
+                    val data = result.data
+                    if (data != null) {
+                        mutableStateFlow.value = UiModelState.Success(data)
+                    } else {
+                        val error = result.error ?: TapaError.UnknownError
+                        mutableStateFlow.value = UiModelState.Error(error)
+                    }
                 }
             }
         }
