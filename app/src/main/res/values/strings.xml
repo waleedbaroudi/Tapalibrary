@@ -7,4 +7,6 @@
     <string name="label_error_title">An Error Occurred</string>
     <string name="lbl_brows_library">Browse the\nLibrary</string>
     <string name="label_sells_at">Sells at</string>
+    <string name="lbl_no_book_description">No description available</string>
+    <string name="lbl_book_description_title">About the book</string>
 </resources>

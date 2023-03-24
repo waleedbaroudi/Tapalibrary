@@ -9,13 +9,13 @@ import kotlinx.parcelize.Parcelize
  */
 @Parcelize
 data class Book(
-    val id: Int,
-    val title: String,
-    val isbn: String,
+    @SerializedName("id") val id: Int,
+    @SerializedName("title") val title: String,
+    @SerializedName("isbn") val isbn: String,
     @SerializedName("price") val priceAmount: Int,
-    val currencyCode: String,
-    val author: String,
-
+    @SerializedName("currencyCode") val currencyCode: String,
+    @SerializedName("author") val author: String,
+    @SerializedName("description") val description: String?
 ): Parcelable {
 
     /**

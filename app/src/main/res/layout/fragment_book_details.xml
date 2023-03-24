@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
     android:background="@drawable/gradiant_primary_vertical"
-    tools:context=".ui.book_details.BookDetailsFragment"
-    android:animateLayoutChanges="true">
+    tools:context=".ui.book_details.BookDetailsFragment">
 
     <com.waroudi.tapalibrary.ui.components.custom.FavoriteView
         android:id="@+id/view_favorite"
@@ -31,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_front"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -111,6 +112,41 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_author" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:rotationY="180"
+            android:alpha="0">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/tapa_bold"
+                android:text="@string/lbl_book_description_title"
+                android:textAlignment="center"
+                android:textColor="@color/dark_gray"
+                android:textSize="26sp" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/tapa_regular"
+                android:ellipsize="end"
+                android:layout_marginBottom="15dp"
+                android:text="@string/lbl_no_book_description"
+                android:textSize="16sp"
+                tools:text="alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum alo lorem ipsum "
+                android:textColor="@color/dark_gray" />
+
+        </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <TextView
