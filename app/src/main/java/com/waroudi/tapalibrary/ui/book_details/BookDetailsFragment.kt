@@ -5,10 +5,7 @@ import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
 import com.waroudi.tapalibrary.databinding.FragmentBookDetailsBinding
 import com.waroudi.tapalibrary.ui.base.BaseFragment
-import com.waroudi.tapalibrary.utils.Constants
-import com.waroudi.tapalibrary.utils.getSafeParcelable
-import com.waroudi.tapalibrary.utils.navigateBack
-import com.waroudi.tapalibrary.utils.setGlideImage
+import com.waroudi.tapalibrary.utils.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -47,6 +44,7 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
 
     private fun handleBook(book: Book) {
         with(binding) {
+            groupElements.toVisible()
             tvTitle.text = book.title
             tvAuthor.text = book.author
             viewPrice.setPrice(book.getPrice())

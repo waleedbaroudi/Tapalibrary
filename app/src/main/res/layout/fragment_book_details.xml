@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradiant_primary_vertical"
-    tools:context=".ui.book_details.BookDetailsFragment">
+    tools:context=".ui.book_details.BookDetailsFragment"
+    android:animateLayoutChanges="true">
 
     <com.waroudi.tapalibrary.ui.components.custom.FavoriteView
         android:id="@+id/view_favorite"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        app:layout_constraintEnd_toEndOf="@id/card_book"
         android:layout_marginEnd="20dp"
-        app:layout_constraintBottom_toTopOf="@id/card_book"
-        app:layout_constraintTop_toTopOf="@id/card_book"
         android:elevation="4dp"
-        />
+        app:layout_constraintBottom_toTopOf="@id/card_book"
+        app:layout_constraintEnd_toEndOf="@id/card_book"
+        app:layout_constraintTop_toTopOf="@id/card_book" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_book"
@@ -41,7 +41,7 @@
                 android:layout_marginBottom="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/tv_author"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintHeight_percent="0.45"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_title"
@@ -63,11 +63,10 @@
                 android:textSize="24sp"
                 app:layout_constraintBottom_toTopOf="@+id/img_cover"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="spread"
-                tools:text="Book Title" />
+                tools:text="Book Title Book Title Book Title Book Title Book Title Book Title Book Title Book Title Book Title Book Title Book Title Book Title Book Title " />
 
             <TextView
                 android:id="@+id/tv_author"
@@ -104,6 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
+                android:layout_marginBottom="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -128,4 +128,12 @@
         app:layout_constraintStart_toStartOf="@id/card_book"
         app:layout_constraintTop_toBottomOf="@id/card_book"
         tools:text="99-9999999" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_elements"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="card_book, tv_isbn, view_favorite"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
