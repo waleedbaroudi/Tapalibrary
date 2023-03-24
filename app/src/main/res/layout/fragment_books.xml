@@ -7,13 +7,33 @@
     android:background="@drawable/gradiant_primary_vertical"
     tools:context=".ui.books.BooksFragment">
 
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginHorizontal="12dp"
+        android:fontFamily="@font/tapa_bold"
+        android:text="Book List"
+        android:textAlignment="center"
+        android:shadowColor="#662D2D2D"
+        android:shadowRadius="15"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_books"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/transparent"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="12dp"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         tools:itemCount="10"
-        tools:listitem="@layout/layout_book_cell"/>
+        android:layout_marginTop="16dp"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="10dp"
+        tools:listitem="@layout/layout_book_cell" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
