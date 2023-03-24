@@ -4,82 +4,128 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/gradiant_primary_vertical"
     tools:context=".ui.book_details.BookDetailsFragment">
 
+    <com.waroudi.tapalibrary.ui.components.custom.FavoriteView
+        android:id="@+id/view_favorite"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:layout_constraintEnd_toEndOf="@id/card_book"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toTopOf="@id/card_book"
+        app:layout_constraintTop_toTopOf="@id/card_book"
+        android:elevation="4dp"
+        />
 
-    <ImageView
-        android:id="@+id/img_cover"
-        android:layout_width="0dp"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_book"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="30dp"
-        tools:src="@drawable/book_cover"
-        app:layout_constraintBottom_toTopOf="@+id/tv_title"
-        app:layout_constraintDimensionRatio="0.6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintWidth_percent="0.5" />
-
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="6dp"
-        android:textAlignment="center"
-        android:textColor="@color/primary"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tv_author"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_cover"
-        tools:text="Book Title" />
-
-    <TextView
-        android:id="@+id/tv_author"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/dark_gray"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_price"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        tools:text="Book Author" />
-
-    <TextView
-        android:id="@+id/tv_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColor="@color/dark_gray"
-        android:textSize="16sp"
-        android:textStyle="bold"
+        android:layout_marginHorizontal="18dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/tv_title"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_author"
-        tools:text="Price: 2500 USD" />
+        app:layout_constraintHeight_percent="0.65"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/img_cover"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_author"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_title"
+                app:layout_constraintVertical_bias="0.5"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:src="@drawable/book_cover" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="6dp"
+                android:fontFamily="@font/tapa_bold"
+                android:maxLines="4"
+                android:textAlignment="center"
+                android:textColor="@color/primary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@+id/img_cover"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                tools:text="Book Title" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tapa_regular"
+                android:textColor="@color/dark_gray"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/view_price"
+                app:layout_constraintEnd_toEndOf="@id/tv_title"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@id/tv_title"
+                app:layout_constraintTop_toBottomOf="@+id/img_cover"
+                tools:text="Book Author" />
+
+            <TextView
+                android:id="@+id/tv_sells_at"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/tapa_light"
+                android:text="@string/label_sells_at"
+                android:textColor="@color/dark_gray"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/view_price"
+                app:layout_constraintEnd_toStartOf="@+id/view_price"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/view_price" />
+
+            <com.waroudi.tapalibrary.ui.components.custom.PriceTagView
+                android:id="@+id/view_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tv_sells_at"
+                app:layout_constraintTop_toBottomOf="@id/tv_author" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/tv_isbn"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="18dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/shape_curved_bg"
+        android:elevation="2dp"
+        android:fontFamily="@font/tapa_light"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp"
         android:textColor="@color/dark_gray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="isbn: isbn here" />
-
-
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@id/card_book"
+        app:layout_constraintTop_toBottomOf="@id/card_book"
+        tools:text="99-9999999" />
 </androidx.constraintlayout.widget.ConstraintLayout>

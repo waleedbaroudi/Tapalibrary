@@ -1,6 +1,5 @@
 package com.waroudi.tapalibrary.ui.book_details
 
-import com.bumptech.glide.Glide
 import com.waroudi.tapalibrary.R
 import com.waroudi.tapalibrary.data.models.api.Book
 import com.waroudi.tapalibrary.data.models.error.TapaLibraryError
@@ -31,6 +30,15 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
     override fun setupView() {
     }
 
+    override fun setupListeners() {
+        binding.viewFavorite.apply {
+            setOnClickListener {
+                val newState = viewModel.changeFavoriteState()
+                setFavorite(newState, true)
+            }
+        }
+    }
+
     override fun subscribesUI() {
         observeFlow(viewModel.book,
             success = { handleBook(it) },
@@ -41,10 +49,10 @@ class BookDetailsFragment : BaseFragment<FragmentBookDetailsBinding>() {
         with(binding) {
             tvTitle.text = book.title
             tvAuthor.text = book.author
-            tvPrice.text = book.getPrice().getFormattedPrice()
-            val isbnLabel = "isbn: ${book.isbn}"
+            viewPrice.setPrice(book.getPrice())
+            val isbnLabel = book.isbn
             tvIsbn.text = isbnLabel
-
+            viewFavorite.setFavorite(viewModel.isBookFavorite())
             imgCover.setGlideImage(book.getBookCoverUrl(), R.drawable.book_cover)
         }
     }

@@ -18,4 +18,5 @@ class BooksRepository(private val service: BooksService, private val localStore:
     // Local
     fun getFavoritesIds(): List<String> = localStore.getFavoriteIDs()
     fun changeFavoriteState(book: Book) = localStore.changeFavoriteState(book)
+    fun isBookFavorite(book: Book) = localStore.isBookFavorite(book)
 }
