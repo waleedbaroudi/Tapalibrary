@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "99229668091",
+    "project_id": "tapalibrary-f42a6",
+    "storage_bucket": "tapalibrary-f42a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99229668091:android:c11b97692fea88a70c965e",
+        "android_client_info": {
+          "package_name": "com.waroudi.tapalibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99229668091-asjqr8oshjkkiprc9u1jek6dnepijk72.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.waroudi.tapalibrary",
+            "certificate_hash": "a76c8fea20f6d5475054e569574fe7d4be990df1"
+          }
+        },
+        {
+          "client_id": "99229668091-rpqae9hm82786shfm805f9a8vt9mne4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA9Xft7_D5ijbqq2N-2GhIcH4waXJICvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99229668091-rpqae9hm82786shfm805f9a8vt9mne4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
